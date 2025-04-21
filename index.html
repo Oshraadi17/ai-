@@ -5,17 +5,20 @@
     <meta charset="UTF-8">
     <title>NeuroPulse AI</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
         <h1>NeuroPulse AI</h1>
         <p>Feel the future. Know yourself.</p>
-        <a href="#" class="cta-button">Start Now</a>
+        <a href="#" class="cta-button" onclick="startAnalysis()">Start Now</a>
     </header>
 
-    <section class="intro">
-        <h2>Your Emotions. Understood. Optimized.</h2>
-        <p>Our AI detects your emotional state in real-time and provides smart feedback to support better decisions, wellness, and focus.</p>
+    <section id="analyzer" class="hidden">
+        <h2>How are you feeling right now?</h2>
+        <input type="text" id="userInput" placeholder="Type your emotion..." />
+        <button onclick="analyzeEmotion()">Analyze</button>
+        <p id="aiResponse" class="response"></p>
     </section>
 
     <footer>
