@@ -1,0 +1,44 @@
+
+body {
+    background-color: #0e0e0e;
+    color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 40px;
+}
+header {
+    margin-bottom: 40px;
+}
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #1f8ef1;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+textarea {
+    padding: 10px;
+    width: 70%;
+    height: 100px;
+    margin-top: 10px;
+}
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #1f8ef1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.response {
+    margin-top: 20px;
+    font-style: italic;
+    color: #1f8ef1;
+    white-space: pre-wrap;
+}
+.hidden {
+    display: none;
+}
