@@ -1,24 +1,34 @@
 
-function startAnalysis() {
-    document.getElementById('analyzer').classList.remove('hidden');
-    document.getElementById('aiResponse').innerText = '';
-    document.getElementById('userInput').value = '';
+async function sendToGPT() {
+    const input = document.getElementById("userInput").value;
+    const responseArea = document.getElementById("responseArea");
+    responseArea.innerText = "Thinking...";
+
+    const apiKey = "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";
+
+    try {
+        const gptResponse = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + apiKey
+            },
+            body: JSON.stringify({
+                model: "gpt-4",
+                messages: [{ role: "user", content: input }],
+                max_tokens: 150
+            })
+        });
+
+        const data = await gptResponse.json();
+        responseArea.innerText = data.choices[0].message.content;
+    } catch (error) {
+        responseArea.innerText = "Something went wrong. Please try again.";
+    }
 }
 
-function analyzeEmotion() {
-    const input = document.getElementById('userInput').value.toLowerCase();
-    const response = document.getElementById('aiResponse');
-    response.innerText = "Analyzing...";
-    
-    setTimeout(() => {
-        if (input.includes("stress") || input.includes("anxious") || input.includes("overwhelmed")) {
-            response.innerText = "It sounds like you're feeling stressed. Let's take a deep breath together.";
-        } else if (input.includes("happy") || input.includes("excited")) {
-            response.innerText = "Great! Keep riding that positive wave.";
-        } else if (input.includes("sad") || input.includes("tired")) {
-            response.innerText = "It's okay to slow down. Your emotions matter.";
-        } else {
-            response.innerText = "Thank you for sharing. Self-awareness is powerful.";
-        }
-    }, 1000);
+function showChat() {
+    document.getElementById("chatSection").classList.remove("hidden");
+    document.getElementById("responseArea").innerText = "";
+    document.getElementById("userInput").value = "";
 }

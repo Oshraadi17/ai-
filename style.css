@@ -18,25 +18,10 @@ header {
     text-decoration: none;
     border-radius: 4px;
 }
-.intro {
-    margin-top: 40px;
-}
-footer {
-    margin-top: 80px;
-    font-size: 0.9em;
-    color: #888;
-}
-
-.hidden {
-    display: none;
-}
-#analyzer {
-    margin-top: 40px;
-}
-#userInput {
+textarea {
     padding: 10px;
-    width: 60%;
-    max-width: 400px;
+    width: 70%;
+    height: 100px;
     margin-top: 10px;
 }
 button {
@@ -52,4 +37,8 @@ button {
     margin-top: 20px;
     font-style: italic;
     color: #1f8ef1;
+    white-space: pre-wrap;
+}
+.hidden {
+    display: none;
 }

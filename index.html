@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NeuroPulse AI</title>
+    <title>NeuroPulse AI – Live GPT</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
@@ -11,14 +11,14 @@
     <header>
         <h1>NeuroPulse AI</h1>
         <p>Feel the future. Know yourself.</p>
-        <a href="#" class="cta-button" onclick="startAnalysis()">Start Now</a>
+        <a href="#" class="cta-button" onclick="showChat()">Start Now</a>
     </header>
 
-    <section id="analyzer" class="hidden">
+    <section id="chatSection" class="hidden">
         <h2>How are you feeling right now?</h2>
-        <input type="text" id="userInput" placeholder="Type your emotion..." />
-        <button onclick="analyzeEmotion()">Analyze</button>
-        <p id="aiResponse" class="response"></p>
+        <textarea id="userInput" placeholder="Type anything you feel..."></textarea>
+        <button onclick="sendToGPT()">Analyze</button>
+        <div id="responseArea" class="response"></div>
     </section>
 
     <footer>
