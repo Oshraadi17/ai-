@@ -9,11 +9,8 @@ const path = require("path");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-
-// שרת קבצים סטטיים
 app.use(express.static(__dirname));
 
-// חיבור ל-OpenAI
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
@@ -23,7 +20,7 @@ app.post('/api/analyze', async (req, res) => {
     const userInput = req.body.message;
 
     const gptResponse = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: userInput }],
       max_tokens: 150
     });
@@ -35,7 +32,6 @@ app.post('/api/analyze', async (req, res) => {
   }
 });
 
-// לכל בקשה אחרת – החזר את index.html
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });

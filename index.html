@@ -1,28 +1,23 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
-    <meta charset="UTF-8">
-    <title>NeuroPulse AI – Live GPT</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NeuroPulse AI</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <header>
-        <h1>NeuroPulse AI</h1>
-        <p>Feel the future. Know yourself.</p>
-        <a href="#" class="cta-button" onclick="showChat()">Start Now</a>
-    </header>
-
-    <section id="chatSection" class="hidden">
-        <h2>How are you feeling right now?</h2>
-        <textarea id="userInput" placeholder="Type anything you feel..."></textarea>
-        <button onclick="sendToGPT()">Analyze</button>
-        <div id="responseArea" class="response"></div>
-    </section>
-
-    <footer>
-        <p>Created by Adi Basis – Founder & Visionary</p>
-    </footer>
+  <h1>NeuroPulse AI</h1>
+  <p>להרגיש את העתיד. להכיר את עצמך.</p>
+  <button onclick="start()">התחל עכשיו</button>
+  <section id="chatSection" style="display:none;">
+    <h2>איך אתה מרגיש כרגע?</h2>
+    <textarea id="userInput" placeholder="אני מרגיש..."></textarea>
+    <button onclick="sendMessage()">שלח</button>
+    <p id="responseText"></p>
+  </section>
+  <footer><p>נוצר על ידי עדי בסיס - מייסד וחזון</p></footer>
+  <script src="script.js"></script>
 </body>
 </html>
