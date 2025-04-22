@@ -4,11 +4,16 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const OpenAI = require("openai");
+const path = require("path");
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+// שרת קבצים סטטיים
+app.use(express.static(__dirname));
+
+// חיבור ל-OpenAI
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
@@ -28,6 +33,11 @@ app.post('/api/analyze', async (req, res) => {
     console.error("GPT ERROR:", error);
     res.status(500).json({ error: "Failed to connect to OpenAI." });
   }
+});
+
+// לכל בקשה אחרת – החזר את index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 const PORT = process.env.PORT || 3001;
