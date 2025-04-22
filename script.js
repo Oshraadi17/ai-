@@ -7,7 +7,7 @@ async function sendToGPT() {
     const apiKey = "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";
 
     try {
-        const gptResponse = await fetch("https://api.openai.com/v1/chat/completions", {
+        const gptResponse = await fetch("/api/analyze", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

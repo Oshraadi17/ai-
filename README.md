@@ -1,24 +1,23 @@
 
-# NeuroPulse AI – Full Project (Client + Server)
+# NeuroPulse AI – Combined Version (Single Web Service)
 
-## איך לפרוס את זה ב־Render:
+## מבנה תיקייה אחיד לפריסה קלה:
 
-### 1. פריסת השרת:
-- צור Web Service חדש ב-Render
-- Root Directory: `server`
-- Build Command: `npm install`
-- Start Command: `node server.js`
-- הוסף Environment Variable:
-  - Name: `OPENAI_API_KEY`
-  - Value: המפתח שלך מ־OpenAI
+- כל הקבצים נמצאים באותה תיקייה
+- ניתן לפרוס את הכול ב־Render כ־Web Service אחד בלבד
 
-### 2. פריסת האתר (Client):
-- צור Static Site חדש
-- Root Directory: `client`
-- אין צורך ב־Build Command
-- הוסף קישור לשרת שלך בקובץ `script.js` אם כתובת השרת שונה
+### איך לפרוס את זה ב־Render:
 
-## מבנה:
-- `/client` = האתר שלך
-- `/server` = השרת שמחובר ל-GPT
+1. פתח Web Service חדש
+2. Root Directory: (ריק)
+3. Build Command: `npm install`
+4. Start Command: `node server.js`
+5. Environment Variable:
+   - Name: `OPENAI_API_KEY`
+   - Value: המפתח שלך מ־OpenAI
+
+### מה כלול:
+- index.html / style.css / script.js – האתר שלך
+- server.js – שרת שמחובר ל-GPT
+- הכל במקום אחד – בלי צורך להפריד Static
 
