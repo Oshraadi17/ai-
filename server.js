@@ -3,30 +3,30 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
-const { Configuration, OpenAIApi } = require('openai');
+const OpenAI = require("openai");
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
 });
-const openai = new OpenAIApi(configuration);
 
 app.post('/api/analyze', async (req, res) => {
   try {
     const userInput = req.body.message;
 
-    const gptResponse = await openai.createChatCompletion({
-      model: 'gpt-4',
-      messages: [{ role: 'user', content: userInput }],
-      max_tokens: 150,
+    const gptResponse = await openai.chat.completions.create({
+      model: "gpt-4",
+      messages: [{ role: "user", content: userInput }],
+      max_tokens: 150
     });
 
-    res.json({ reply: gptResponse.data.choices[0].message.content });
+    res.json({ reply: gptResponse.choices[0].message.content });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to connect to OpenAI.' });
+    console.error("GPT ERROR:", error);
+    res.status(500).json({ error: "Failed to connect to OpenAI." });
   }
 });
 
